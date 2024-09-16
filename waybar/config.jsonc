@@ -1,0 +1,58 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "layer": "top",
+    "height": 20, // Waybar height (to be removed for auto height)
+    "margin-top": 10,
+    "margin-right": 20,
+    "margin-left": 20,
+    "spacing": 10, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "clock",
+        "tray",
+        "power-profiles-daemon"
+    ],
+    "modules-center": [
+        // "hyprland/window",
+        "hyprland/workspaces",
+        "wlr/taskbar",
+        "custom-media",
+    ],
+    "modules-right": [
+        // "idle_inhibitor",
+        // "pulseaudio",
+        // "bluetooth",
+        // "network",
+        "pulseaudio",
+        "group/somegroup",
+        // "cpu",
+        // "temperature",
+        // "backlight",
+        "group/hardware",
+        "sway/language",
+        "battery",
+        "custom/notification",
+    ],
+    "include": [
+        "~/.config/waybar/modules.jsonc"
+    ],
+    "group/hardware": {
+        "orientation": "inherit",
+        "format": "{cpu}{temperature}{backlight}",
+        "modules": [
+            "cpu",
+            "temperature",
+            "backlight"
+        ],
+    },
+    "group/somegroup": {
+        "orientation": "inherit",
+        "format": "{pulseaudio}{bluetooth}{network}",
+        "modules": [
+            "bluetooth",
+            "network"
+        ],
+    },
+}
