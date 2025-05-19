@@ -49,16 +49,17 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+vim.keymap.set("n", "<leader>fr", builtin.oldfiles, {})
 
 local extension = require("telescope").extensions
 vim.keymap.set("n", "<leader>fl", extension.lazygit.lazygit, {})
 
 local custom = require("lib.telescope")
-vim.keymap.set("n", "<leader>ft", custom.neoconf)
+vim.keymap.set("n", "<leader>ft", custom.neoconf, {})
 
 -- NvimTree
-vim.keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>", opts)    -- open/close
-vim.keymap.set("n", "<leader>nr", ":NvimTreeRefresh<CR>", opts)  -- refresh
+vim.keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>", opts) -- open/close
+vim.keymap.set("n", "<leader>nr", ":NvimTreeRefresh<CR>", opts) -- refresh
 vim.keymap.set("n", "<leader>nf", ":NvimTreeFindFile<CR>", opts) -- search file
 
 -- Terminal
@@ -71,4 +72,4 @@ local oil = require("oil")
 vim.keymap.set("n", "-", oil.open_float)
 
 -- aerial setup
-vim.keymap.set("n", "<leader>v", ":AerialToggle", { silent = true })
+vim.keymap.set("n", "<leader>v", ":AerialToggle", { silent = true, noremap = true })

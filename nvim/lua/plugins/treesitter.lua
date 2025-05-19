@@ -51,8 +51,9 @@ return { -- Treesitter interface
         "vim",
         "rust",
         "svelte",
+        "javascript",
+        "typescript",
       },
-
       highlight = {
         enable = true,
         use_languagetree = true,

@@ -9,9 +9,11 @@
   - learning/making telescope plugins
   - use it to create a Note taking plugin
 
-X introduce the chatgpt plugins
+introduce the chatgpt plugins
 
 - fix the chatgpt plugins
+
+  $\sqrt{3 + 1}$
 
 ## inprogress
 

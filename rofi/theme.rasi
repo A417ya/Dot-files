@@ -1,96 +1,52 @@
-configuration {
-    modes : [combi];
-    combi-modes: [window, drun, run];
-    show-icons: true;
-    display-drun: "Applications";
-
-}
-
-
-entry {
-    cursor: pointer;
-    placeholder: "search";
-}
-
-/*
-
-element {
-    orientation: horizontal;
-    childern: [  element-icon, element-text ];
-    spacing: 15px;
-}
-
-
-window {
-    padding: 0;
-    border: 0;
-}
-
-
-element-text element-icon {
-    background-color:  rgba( 13,17, 23,100%);
-}
-
-element normal.normal {
-    background-color: rgba( 13,17, 23,100%);
-}
-
-element selected.normal {
-
-}
-button {
-    background-color: rgba( 13,17, 23,100%);
-}
-*/
-
-
+/**
+ * rofi -dump-theme output.
+ * Rofi version: 1.7.5+wayland3
+ **/
 * {
-    // red:                         rgba ( 220, 50, 47, 100% );
-    red: rgba( 255, 123, 144, 100% );
+    red:                         rgba ( 220, 50, 47, 100 % );
     selected-active-foreground:  var(background);
-    // lightfg:                     rgba ( 88, 104, 117, 100% );
-    lightfg: rgba(166, 177, 191, 100%);
+    lightfg:                     rgba ( 88, 104, 117, 100 % );
     separatorcolor:              var(foreground);
     urgent-foreground:           var(red);
     alternate-urgent-background: var(lightbg);
-    lightbg:                     rgba ( 22, 30, 43, 100% );
+    lightbg:                     rgba ( 238, 232, 213, 100 % );
     background-color:            transparent;
-    border-color:                var(background);
+    border-color:                var(foreground);
     normal-background:           var(background);
     selected-urgent-background:  var(red);
     alternate-active-background: var(lightbg);
     spacing:                     2;
-    blue:                        rgba ( 88, 166, 255, 100% );
+    blue:                        rgba ( 38, 139, 210, 100 % );
     alternate-normal-foreground: var(foreground);
     urgent-background:           var(background);
     selected-normal-foreground:  var(lightbg);
     active-foreground:           var(blue);
-    background:                  rgba ( 13, 17, 23, 100% );
+    background:                  rgba ( 253, 246, 227, 100 % );
     selected-active-background:  var(blue);
     active-background:           var(background);
     selected-normal-background:  var(lightfg);
-    // alternate-normal-background: var(lightbg);
-    alternate-normal-background: var(background);
-    // foreground:                  rgba ( 0, 43, 54, 100 % );
-    foreground: rgba(201, 209, 217, 100%);
+    alternate-normal-background: var(lightbg);
+    foreground:                  rgba ( 0, 43, 54, 100 % );
     selected-urgent-foreground:  var(background);
     normal-foreground:           var(foreground);
     alternate-urgent-foreground: var(red);
     alternate-active-foreground: var(blue);
-    inputbar: rgba(27,35,46,100%);
 }
+
 element {
-    padding:     2px ;
+    padding:     1px ;
     orientation: horizontal;
     cursor:      pointer;
     childern:    [ "element-icon","element-text" ];
     spacing:     15px ;
-    border:      0px;
+    border:      0;
 }
+
 element normal.normal {
     background-color: var(normal-background);
     text-color:       var(normal-foreground);
 }
+
 element normal.urgent {
     background-color: var(urgent-background);
     text-color:       var(urgent-foreground);
@@ -129,6 +85,9 @@ element-text {
     highlight:        inherit;
     text-color:       inherit;
 }
+element-text element-icon {
+    background-color: rgba ( 93, 92, 113, 100 % );
+}
 element-icon {
     background-color: transparent;
     size:             1.0000em ;
@@ -136,14 +95,13 @@ element-icon {
     text-color:       inherit;
 }
 window {
-    padding:          0;
-    // background-color: rgba ( 93, 92, 113, 100 % );
-    background-color: var(background);
-    border:           0;
+    padding:          5;
+    background-color: rgba ( 93, 92, 113, 100 % );
+    border:           5;
 }
 mainbox {
-    padding: 1px;
-    border: 1px;
+    padding: 0;
+    border:  0;
 }
 message {
     padding:      1px ;
@@ -157,11 +115,10 @@ listview {
     padding:      2px 0px 0px ;
     scrollbar:    true;
     border-color: var(separatorcolor);
-    spacing:      5px ;
+    spacing:      2px ;
     fixed-height: 0;
-    border:       0px 0px 0px 0px ;
+    border:       2px dash 0px 0px ;
 }
-
 scrollbar {
     width:        4px ;
     padding:      0;
@@ -196,8 +153,7 @@ textbox-num-sep {
     text-color: Gray;
 }
 inputbar {
-    padding:    10px ;
-    background-color: var(inputbar);
+    padding:    1px ;
     spacing:    0px ;
     text-color: var(normal-foreground);
     children:   [ "prompt","textbox-prompt-colon","entry","num-filtered-rows","textbox-num-sep","num-rows","case-indicator" ];

@@ -33,18 +33,25 @@ return { -- LSP - Quickstart configs for Nvim LSP
         },
       },
       {
-        "folke/neodev.nvim",
+        "folke/lazydev.nvim",
         dependencies = { "rcarriga/nvim-dap-ui" },
         config = function()
-          require("neodev").setup({
-            library = { plugins = { "nvim-dap-ui" }, types = true },
+          require("lazydev").setup({
+            library = { plugins = { "nvim-dap-ui" } },
           })
         end,
       }, -- dev config for neovim
 
       -- languages plugins
-      { "simrat39/rust-tools.nvim" },
-      { "jose-elias-alvarez/typescript.nvim" },
+      { "simrat39/rust-tools.nvim" }, -- archived by original deveoper
+      { "pmizio/typescript-tools.nvim" },
+      -- {
+      --   "mrcjkb/rustaceanvim",
+      --   version = "^5",
+      --   lazy = false,
+      --   filetype = { "rust" },
+      --   config = function() end,
+      -- },
     },
     opts = {
       -- Automatically format on save
@@ -63,7 +70,7 @@ return { -- LSP - Quickstart configs for Nvim LSP
         dockerls = {},
         bashls = {},
         gopls = {},
-        pyright = {},
+        ruff = {},
         vimls = {},
         yamlls = {},
       },
@@ -73,7 +80,9 @@ return { -- LSP - Quickstart configs for Nvim LSP
       setup = {
         -- example to setup with typescript.nvim
         tsserver = function(_, opts)
-          require("typescript").setup({ server = opts })
+          require("typescript-tools").setup({
+            server = opts,
+          })
           return true
         end,
         lua_ls = function(_, opts)
@@ -92,24 +101,33 @@ return { -- LSP - Quickstart configs for Nvim LSP
 
           return true
         end,
-        rust_analyzer = function()
-          require("rust-tools").setup()
+        svelte = function(_, opts)
+          require("lspconfig")["svelte"].setup({ server = opts })
+        end,
+        rust_analyzer = function(_, opts)
+          require("rust-tools").setup({ server = opts })
+          -- vim.g.rustaceanvim = {
+          --   server = opts,
+          -- }
           return true
         end,
 
-        html_lsp = function(server, opts)
-          require("lspconfig")[server].setup(vim.tbl_deep_extend("force", {
-            filetypes = { "html", "css", "scss" },
-          }, opts))
-          return true
-        end,
+        -- html_lsp = function(server, opts)
+        --   require("lspconfig")[server].setup(vim.tbl_deep_extend("force", {
+        --     filetypes = { "html", "css", "scss" },
+        --   }, opts))
+        --   return true
+        -- end,
+
         -- Specify * to use this function as a fallback for any server
-        -- ["*"] = function(server, opts) end,
+        ["*"] = function(server, opts)
+          require("lspconfig")[server].setup(opts)
+        end,
       },
     },
     ---@param opts Opts
     config = function(_, opts)
-      require("neodev").setup() -- importing neodev for development support
+      require("lazydev").setup() -- importing neodev for development support
 
       local servers = opts.servers
       local capabilities =
@@ -134,11 +152,11 @@ return { -- LSP - Quickstart configs for Nvim LSP
 
       -- temp fix for lspconfig rename
       -- https://github.com/neovim/nvim-lspconfig/pull/2439
-      local mappings = require("mason-lspconfig.mappings.server")
-      if not mappings.lspconfig_to_package.lua_ls then
-        mappings.lspconfig_to_package.lua_ls = "lua-language-server"
-        mappings.package_to_lspconfig["lua-language-server"] = "lua_ls"
-      end
+      -- local mappings = require("mason-lspconfig.mappings.server")
+      -- if not mappings.lspconfig_to_package.lua_ls then
+      --   mappings.lspconfig_to_package.lua_ls = "lua-language-server"
+      --   mappings.package_to_lspconfig["lua-language-server"] = "lua_ls"
+      -- end
 
       local mlsp = require("mason-lspconfig")
       local available = mlsp.get_available_servers()
@@ -161,7 +179,7 @@ return { -- LSP - Quickstart configs for Nvim LSP
         ensure_installed = ensure_installed,
         automatic_installation = true,
       })
-      require("mason-lspconfig").setup_handlers({ setup })
+      -- require("mason-lspconfig").setup_handlers({ setup })
 
       -- luasnip setup
       local luasnip = require("luasnip")
@@ -241,7 +259,8 @@ return { -- LSP - Quickstart configs for Nvim LSP
   -- code actions, and more via Lua.
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    -- "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     lazy = false,
     config = function()
@@ -264,6 +283,7 @@ return { -- LSP - Quickstart configs for Nvim LSP
           formatting.stylua,
           formatting.google_java_format,
           -- diagnostics.flake8,
+          formatting.beautysh,
         },
       })
     end,

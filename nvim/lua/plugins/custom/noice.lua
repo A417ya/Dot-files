@@ -12,24 +12,24 @@
 -- Lazy.nvim
 
 return {
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-    opts = {
-      cmdline = {
-        enable = true,
-      },
-      presents = {
-        inc_rename = true,
-        command_palette = true,
-      },
-    },
-    config = function(_, opts)
-      require("noice").setup(opts)
-    end,
-  },
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+		opts = {
+			cmdline = {
+				enable = true,
+			},
+			presents = {
+				inc_rename = true,
+				command_palette = true,
+			},
+		},
+		config = function(_, opts)
+			require("noice").setup(opts)
+		end,
+	},
 }

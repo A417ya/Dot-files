@@ -22,5 +22,3 @@ end
 
 -- Load main config
 require("config")
-
--- require("notify").notify(require("lib.util").get_python_env(), vim.log.levels.INFO)
