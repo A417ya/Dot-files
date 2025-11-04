@@ -1,0 +1,68 @@
+* {
+  font-family:
+    'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
+  font-size: 13px;
+  /* border-radius: 10; */
+  /* font: bold; */
+}
+
+window#waybar {
+  background-color: rgba(17, 17, 15, 0.7);
+  border-color: black;
+  /* color: white; */
+  /* transition-property: background-color; */
+  /* transition-duration: 0.5s; */
+}
+
+window#waybar>* {
+  padding: 0 15px;
+  border: 10px;
+}
+
+#power-profiles-daemon {
+  color: white;
+}
+
+window#waybar.hidden {
+  opacity: 0.1;
+}
+
+window#waybar.empty {
+  background-color: white;
+}
+
+window#waybar.solo {
+  color: #ffffff;
+}
+
+window#waybar.termite {
+  background-color: #3f3f3f;
+}
+
+window#waybar.chromium {
+  background-color: white;
+  border: 10cm;
+  /* border: none; */
+}
+
+#cpu,
+#temperature,
+#backlight,
+#workspaces,
+#taskbar,
+#bluetooth,
+#battery,
+#somegroup,
+#hardware,
+#pulseaudio,
+#modes,
+#clock {
+  color: white;
+  padding: 0 10px;
+}
+
+#pulseaudio {
+  background-color: blue;
+  border-color: white;
+  border: 10px;
+}

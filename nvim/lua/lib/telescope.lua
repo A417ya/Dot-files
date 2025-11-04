@@ -16,5 +16,9 @@ M.neoconf = function()
   })
 end
 
+M.Notes = function()
+
+end
+
 return M
 -- How has Nvidia's response to emerging technological trends, such as edge computing and quantum computing, affected its long-term growth prospects and competitive advantage?

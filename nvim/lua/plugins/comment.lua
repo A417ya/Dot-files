@@ -7,6 +7,8 @@
 -- File: plugins/comment.lua
 -- Description: nvim comment config
 -- Author: Kien Nguyen-Tuan <kiennt2609@gmail.com>
+
+
 return {
   {
     -- Smart and powerful comment plugin for neovim.
@@ -72,8 +74,7 @@ return {
 
       -- Pre-hook, called before commenting the line
       -- @type function|nil
-      pre_hook = pre_hook,
-
+      pre_hook = nil,
       -- Post-hook, called after commenting is done
       -- @type function|nil
       post_hook = nil,

@@ -20,5 +20,8 @@ for _, cmd in ipairs({ "git", "rg", { "fd", "fdfind" } }) do
   end
 end
 
+
+vim.lsp.enable("lua_ls")
+
 -- Load main config
 require("config")

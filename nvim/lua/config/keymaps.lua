@@ -58,8 +58,8 @@ local custom = require("lib.telescope")
 vim.keymap.set("n", "<leader>ft", custom.neoconf, {})
 
 -- NvimTree
-vim.keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>", opts) -- open/close
-vim.keymap.set("n", "<leader>nr", ":NvimTreeRefresh<CR>", opts) -- refresh
+vim.keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>", opts)    -- open/close
+vim.keymap.set("n", "<leader>nr", ":NvimTreeRefresh<CR>", opts)  -- refresh
 vim.keymap.set("n", "<leader>nf", ":NvimTreeFindFile<CR>", opts) -- search file
 
 -- Terminal

@@ -19,11 +19,6 @@ return {
     end,
   },
   {
-    "rhysd/vim-grammarous",
-    filetype = { "md", "tex" },
-    config = function() end,
-  },
-  {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {},
     dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
@@ -31,8 +26,18 @@ return {
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
   },
   {
-    "elkowar/yuck.vim",
-    opts = {},
-    config = function() end,
-  },
+    "echaya/neowiki.nvim",
+    opts = {
+      wiki_dirs = {
+        -- neowiki.nvim supports both absolute and relative paths
+        { name = "Work",     path = "~/work/wiki" },
+        { name = "Personal", path = "personal/wiki" },
+      },
+    },
+    keys = {
+      { "<leader>ww", "<cmd>lua require('neowiki').open_wiki()<cr>",          desc = "Open Wiki" },
+      { "<leader>wW", "<cmd>lua require('neowiki').open_wiki_floating()<cr>", desc = "Open Floating Wiki" },
+      { "<leader>wT", "<cmd>lua require('neowiki').open_wiki_new_tab()<cr>",  desc = "Open Wiki in Tab" },
+    },
+  }
 }

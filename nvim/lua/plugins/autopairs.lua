@@ -14,10 +14,12 @@ return { -- Autopairs
     "windwp/nvim-autopairs",
     opts = {
       check_ts = true,
+
       ts_config = {
         lua = { "string" }, -- it will not add a pair on that treesitter node
         javascript = { "template_string" },
-        java = false,   -- don"t check treesitter on java
+        java = false,       -- don"t check treesitter on java
+        false
       },
 
       -- Don"t add pairs if it already has a close pair in the same line
