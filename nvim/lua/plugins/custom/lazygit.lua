@@ -12,8 +12,8 @@
 -- Lazy.nvim
 
 return {
-  {
-    "kdheepak/lazygit.nvim",
-    lazy = true,
-  },
+	{
+		"kdheepak/lazygit.nvim",
+		lazy = true,
+	},
 }

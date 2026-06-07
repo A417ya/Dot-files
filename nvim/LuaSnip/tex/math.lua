@@ -13,28 +13,28 @@ local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
 
 return {
-  -- some basic snippets
-  s({ trig = ";a", snippetType = "autosnippet" }, { t("\\alpha") }),
-  s({ trig = ";b", snippetType = "autosnippet" }, { t("\\beta") }),
-  s({ trig = ";g", snippetType = "autosnippet" }, { t("\\gamma") }),
+	-- some basic snippets
+	s({ trig = ";a", snippetType = "autosnippet" }, { t("\\alpha") }),
+	s({ trig = ";b", snippetType = "autosnippet" }, { t("\\beta") }),
+	s({ trig = ";g", snippetType = "autosnippet" }, { t("\\gamma") }),
 
-  s({ trig = "int" }, { t("\\int") }),
-  s({ trig = ";int_", snippetType = "autosnippet" }, fmta([[\[\int_<>\] ]], { i(1) })),
-  -- putting simple  expanstion
+	s({ trig = "int" }, { t("\\int") }),
+	s({ trig = ";int_", snippetType = "autosnippet" }, fmta([[\[\int_<>\] ]], { i(1) })),
+	-- putting simple  expanstion
 
-  s({ trig = "frac", dscr = "exapand to \\frac{num}{deno}" }, fmta([[\frac{<>}{<>}]], { i(1, "num"), i(2, "deno") })),
-  s({ trig = "$" }, fmta([[$$<>$$]], { i(1) })),
+	s({ trig = "frac", dscr = "exapand to \\frac{num}{deno}" }, fmta([[\frac{<>}{<>}]], { i(1, "num"), i(2, "deno") })),
+	s({ trig = "$" }, fmta([[$$<>$$]], { i(1) })),
 
-  -- bigger snippets
-  s(
-    { trig = ";eq", dscr = "expand to equations", snippetType = "autosnippet" },
-    fmta(
-      [[
+	-- bigger snippets
+	s(
+		{ trig = ";eq", dscr = "expand to equations", snippetType = "autosnippet" },
+		fmta(
+			[[
       \begin{equation*}
       <>
       \end{equation*}
       ]],
-      { i(1) }
-    )
-  ),
+			{ i(1) }
+		)
+	),
 }

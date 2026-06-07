@@ -11,9 +11,9 @@
 -- Author: Kien Nguyen-Tuan <kiennt2609@gmail.com>
 
 return {
-  "phaazon/mind.nvim",
-  branch = false,
-  lazy = true,
-  dependencies = { "nvim-lua/plenary.nvim" },
-  config = true,
+	"phaazon/mind.nvim",
+	branch = false,
+	lazy = true,
+	dependencies = { "nvim-lua/plenary.nvim" },
+	config = true,
 }

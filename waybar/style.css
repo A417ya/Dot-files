@@ -7,7 +7,7 @@
 }
 
 window#waybar {
-  background-color: rgba(17, 17, 15, 0.7);
+  background-color: rgba(17, 17, 15, 0);
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -103,7 +103,7 @@ button:hover {
 #hardware {
   /* border: 10px black; */
   padding: 0 10px 0 10px;
-  color: #ffffff;
+  /* color: #ffffff; */
   border-radius: 10px;
 }
 
@@ -136,6 +136,12 @@ button:hover {
   color: #ffffff;
   background-color: #26a65b;
 }
+
+/* #battery.charging, */
+/* #battery.plugged { */
+/*   color: #26a65b; */
+/*   background-color: black; */
+/* } */
 
 @keyframes blink {
   to {
@@ -363,6 +369,7 @@ label:focus {
 
 #taskbar.hover {
   background-color: #2a5c45;
+  border-radius: 10;
 }
 
 #hardware {

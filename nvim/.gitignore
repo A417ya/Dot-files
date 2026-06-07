@@ -1,4 +1,5 @@
 ./lua/plugins/custom/code.lua
+*/*.backup
 
 ./todo.md
 
